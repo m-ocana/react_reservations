@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BookingContainer />  @renders should render BookingContainer with bookings 1`] = `
+<div>
+  <span>
+    Sorry, no bookings were found
+  </span>
+</div>
+`;
+
+exports[`<BookingContainer />  @renders should render BookingContainer without bookings 1`] = `
+<div>
+  <span>
+    Sorry, no bookings were found
+  </span>
+</div>
+`;

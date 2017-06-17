@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> component @renders should render App 1`] = `
+<div
+  className="app"
+>
+  <div
+    className="header"
+  >
+    <h1
+      className="intro"
+    >
+      Table Reservations
+    </h1>
+  </div>
+  <BookingContainer />
+</div>
+`;
