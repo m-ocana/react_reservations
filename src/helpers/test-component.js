@@ -12,7 +12,8 @@ const renderComponentHelper = (Component, mountOptions = {}) => {
     const component = {
       wrapper,
       instance: wrapper.instance(),
-      getTree: () => toJson(wrapper)
+      getTree: () => toJson(wrapper),
+      setState: (state) => wrapper.setState(state)
     }
 
     return component

@@ -1,4 +1,3 @@
-import toJson from 'enzyme-to-json'
 import renderComponent from '../../helpers/test-component'
 import BookingContainer from '../BookingContainer'
 
@@ -15,23 +14,34 @@ const mockedState = {
         seated: false,
         cancelled: false,
         notes: ''
+      },
+      {
+        title: 'Mr',
+        firstName: 'John',
+        lastName: 'Smith',
+        time: '18.45',
+        partySize: 1,
+        seated: false,
+        cancelled: true,
+        notes: ''
       }
     ]
-  }]
+  }],
+  activeBooking: null
 }
-const renderContainer = renderComponent(BookingContainer)
+const renderBookingContainer = renderComponent(BookingContainer)
 
 describe('<BookingContainer /> ', () => {
   describe('@renders', () => {
     it('should render BookingContainer without bookings', () => {
-      expect(renderContainer().getTree())
+      expect(renderBookingContainer().getTree())
         .toMatchSnapshot()
     })
 
-    it('should render BookingContainer with bookings', () => {
-      const { wrapper } = renderContainer()
-      wrapper.setState({ mockedState })
-      expect(toJson(wrapper))
+    it('should render BookingContainer with results', () => {
+      const bookingContainer = renderBookingContainer()
+      bookingContainer.setState(mockedState)
+      expect(bookingContainer.getTree())
         .toMatchSnapshot()
     })
   })
@@ -42,10 +52,25 @@ describe('<BookingContainer /> ', () => {
         window.fetch = jest.fn().mockImplementation(() =>
           Promise.resolve())
 
-        const { instance } = renderContainer()
+        const { instance } = renderBookingContainer()
         expect(window.fetch).not.toHaveBeenCalled()
         instance.componentDidMount()
         expect(window.fetch).toHaveBeenCalled()
+      })
+    })
+  })
+
+  describe('@events', () => {
+    describe('on handleClick callback', () => {
+      it('should set state with active booking', () => {
+        const activeBooking = {
+          entryIndex: 0,
+          bookingIndex: 0
+        }
+        const { wrapper, instance } = renderBookingContainer()
+        wrapper.setState(mockedState)
+        instance.handleClick(null, activeBooking)
+        expect(wrapper.state()).toMatchSnapshot()
       })
     })
   })

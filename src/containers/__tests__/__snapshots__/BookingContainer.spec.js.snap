@@ -1,17 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<BookingContainer />  @renders should render BookingContainer with bookings 1`] = `
+exports[`<BookingContainer />  @events on handleClick callback should set state with active booking 1`] = `
+Object {
+  "activeBooking": Object {
+    "bookingIndex": undefined,
+    "entryIndex": Object {
+      "bookingIndex": 0,
+      "entryIndex": 0,
+    },
+  },
+  "bookingEntries": Array [
+    Object {
+      "bookings": Array [
+        Object {
+          "cancelled": false,
+          "firstName": "Fred",
+          "lastName": "Bloggs",
+          "notes": "",
+          "partySize": 2,
+          "seated": false,
+          "time": "16.00",
+          "title": "Mr",
+        },
+        Object {
+          "cancelled": true,
+          "firstName": "John",
+          "lastName": "Smith",
+          "notes": "",
+          "partySize": 1,
+          "seated": false,
+          "time": "18.45",
+          "title": "Mr",
+        },
+      ],
+      "date": "2017-03-13",
+    },
+  ],
+}
+`;
+
+exports[`<BookingContainer />  @renders should render BookingContainer with results 1`] = `
 <div>
-  <span>
-    Sorry, no bookings were found
-  </span>
+  <div
+    className="booking_entries"
+  >
+    <h2
+      className="date"
+    >
+      Booking for 
+      3/13/2017
+    </h2>
+    <BookingTable
+      bookings={
+        Array [
+          Object {
+            "cancelled": false,
+            "firstName": "Fred",
+            "lastName": "Bloggs",
+            "notes": "",
+            "partySize": 2,
+            "seated": false,
+            "time": "16.00",
+            "title": "Mr",
+          },
+          Object {
+            "cancelled": true,
+            "firstName": "John",
+            "lastName": "Smith",
+            "notes": "",
+            "partySize": 1,
+            "seated": false,
+            "time": "18.45",
+            "title": "Mr",
+          },
+        ]
+      }
+      clickHandler={[Function]}
+      entryIndex={0}
+    />
+  </div>
 </div>
 `;
 
 exports[`<BookingContainer />  @renders should render BookingContainer without bookings 1`] = `
 <div>
-  <span>
+  <p>
     Sorry, no bookings were found
-  </span>
+  </p>
 </div>
 `;

@@ -1,16 +1,14 @@
-/* Feel free to edit */
 import React, { Component } from 'react'
+import BookingTable from '../components/BookingTable'
+import style from './BookingContainer.css'
 
-// If you use React Router, make this component
-// render <Router> with your routes. Currently,
-// only synchronous routes are hot reloaded, and
-// you will see a warning from <Router> on every reload.
-// You can ignore this warning. For details, see:
-// https://github.com/reactjs/react-router/issues/2182
 export default class BookingContainer extends Component {
   constructor(props) {
     super(props)
-    this.state = { bookingEntries: [] }
+    this.state = {
+      bookingEntries: [],
+      activeBooking: null
+    }
   }
 
   componentDidMount() {
@@ -21,10 +19,36 @@ export default class BookingContainer extends Component {
       .then((bookingEntries) => {
         this.setState({ bookingEntries })
       })
+      .catch((error) => {
+        console.log(error.message)
+      })
+  }
+
+  handleClick = (e, entryIndex, bookingIndex) => {
+    this.setState({
+      activeBooking: {
+        entryIndex,
+        bookingIndex
+      }
+    })
   }
 
   renderBookingEntries = () => {
-    return null
+    return (
+      this.state.bookingEntries.map(({ date, bookings }, index) => {
+        const formattedDate = new Date(date).toLocaleDateString()
+        return (
+          <div className={style.booking_entries} key={date}>
+            <h2 className={style.date}>Booking for {formattedDate}</h2>
+            <BookingTable
+              bookings={bookings}
+              clickHandler={this.handleClick}
+              entryIndex={index}
+            />
+          </div>
+        )
+      })
+    )
   }
 
   render() {
@@ -32,7 +56,7 @@ export default class BookingContainer extends Component {
     return (
       <div>
         { bookingEntries.length ? this.renderBookingEntries()
-          : <span>Sorry, no bookings were found</span>
+          : <p>Sorry, no bookings were found</p>
         }
       </div>
     )
