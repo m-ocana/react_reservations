@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> component @renders should render Button with children 1`] = `
+<button
+  className="button"
+  onClick={[Function]}
+>
+  Im a button!
+</button>
+`;
+
+exports[`<Button /> component @renders should render Button with initial props 1`] = `
+<button
+  className="button"
+  onClick={[Function]}
+/>
+`;
+
+exports[`<Button /> component @renders should render dumb Button 1`] = `
+<button
+  className=""
+  onClick={[Function]}
+/>
+`;

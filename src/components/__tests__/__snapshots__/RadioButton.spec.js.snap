@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RadioButton /> component @renders should render RadioButton with initial props 1`] = `
+<label
+  className="radio_button"
+  htmlFor="Yes"
+>
+  <input
+    checked={false}
+    className="radio-button"
+    name="selection"
+    onChange={[Function]}
+    type="radio"
+    value="on"
+  />
+  <span
+    className="label"
+  >
+    Yes
+  </span>
+</label>
+`;
+
+exports[`<RadioButton /> component @renders should render checked RadioButton 1`] = `
+<label
+  className="radio_button"
+  htmlFor="Yes"
+>
+  <input
+    checked={true}
+    className="radio-button"
+    name="selection"
+    onChange={[Function]}
+    type="radio"
+    value="on"
+  />
+  <span
+    className="label"
+  >
+    Yes
+  </span>
+</label>
+`;
+
+exports[`<RadioButton /> component @renders should render dumb RadioButton 1`] = `
+<label
+  className="radio_button"
+  htmlFor=""
+>
+  <input
+    checked={false}
+    className=""
+    name=""
+    onChange={[Function]}
+    type="radio"
+    value=""
+  />
+</label>
+`;

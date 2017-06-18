@@ -3,11 +3,8 @@
 exports[`<BookingContainer />  @events on handleClick callback should set state with active booking 1`] = `
 Object {
   "activeBooking": Object {
-    "bookingIndex": undefined,
-    "entryIndex": Object {
-      "bookingIndex": 0,
-      "entryIndex": 0,
-    },
+    "bookingIndex": 0,
+    "entryIndex": 0,
   },
   "bookingEntries": Array [
     Object {
@@ -40,7 +37,9 @@ Object {
 `;
 
 exports[`<BookingContainer />  @renders should render BookingContainer with results 1`] = `
-<div>
+<div
+  className="booking_container"
+>
   <div
     className="booking_entries"
   >
@@ -83,7 +82,9 @@ exports[`<BookingContainer />  @renders should render BookingContainer with resu
 `;
 
 exports[`<BookingContainer />  @renders should render BookingContainer without bookings 1`] = `
-<div>
+<div
+  className="booking_container"
+>
   <p>
     Sorry, no bookings were found
   </p>

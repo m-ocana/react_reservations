@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BookingTable from '../components/BookingTable'
+import BookingUpdate from '../components/BookingUpdate'
 import style from './BookingContainer.css'
 
 export default class BookingContainer extends Component {
@@ -24,12 +25,56 @@ export default class BookingContainer extends Component {
       })
   }
 
-  handleClick = (e, entryIndex, bookingIndex) => {
+  getActiveBooking = () => {
+    const {
+      bookingEntries,
+      activeBooking: { entryIndex, bookingIndex }
+    } = this.state
+    return bookingEntries[entryIndex].bookings[bookingIndex] || null
+  }
+
+  handleTableClick = (e, entryIndex, bookingIndex) => {
     this.setState({
       activeBooking: {
         entryIndex,
         bookingIndex
       }
+    })
+  }
+
+  handleModalClose = () => {
+    this.setState({ activeBooking: null })
+  }
+
+  handleBookingChange = (e) => {
+    const {
+      bookingEntries,
+      activeBooking: { entryIndex, bookingIndex }
+    } = this.state
+
+    const seated = e.target.value === 'seated' && e.target.checked
+    const cancelled = e.target.value === 'cancelled' && e.target.checked
+
+    const booking = {
+      ...this.getActiveBooking(),
+      seated,
+      cancelled
+    }
+
+    const bookings = Object.assign(
+      [],
+      bookingEntries[entryIndex].bookings,
+      { [bookingIndex]: booking }
+    )
+
+    const updateEntries = Object.assign(
+      [],
+      bookingEntries,
+      { [entryIndex]: { ...bookingEntries[entryIndex], bookings } }
+    )
+
+    this.setState({
+      bookingEntries: updateEntries
     })
   }
 
@@ -42,7 +87,7 @@ export default class BookingContainer extends Component {
             <h2 className={style.date}>Booking for {formattedDate}</h2>
             <BookingTable
               bookings={bookings}
-              clickHandler={this.handleClick}
+              clickHandler={this.handleTableClick}
               entryIndex={index}
             />
           </div>
@@ -52,11 +97,19 @@ export default class BookingContainer extends Component {
   }
 
   render() {
-    const { bookingEntries } = this.state
+    const { bookingEntries, activeBooking } = this.state
+    const booking = activeBooking && this.getActiveBooking()
     return (
-      <div>
+      <div className={style.booking_container}>
         { bookingEntries.length ? this.renderBookingEntries()
           : <p>Sorry, no bookings were found</p>
+        }
+        { activeBooking &&
+          <BookingUpdate
+            booking={booking}
+            handleModalClose={this.handleModalClose}
+            handleBookingChange={this.handleBookingChange}
+          />
         }
       </div>
     )

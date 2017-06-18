@@ -1,0 +1,9 @@
+
+.radio_button {
+  display: block;
+  padding: 0 2px;
+}
+
+.label {
+  display: inline-block;
+}

@@ -1,5 +1,10 @@
 
+.booking_container {
+  display: flex;
+}
+
 .booking_entries {
+  flex: 2;
   overflow: auto;
 }
 

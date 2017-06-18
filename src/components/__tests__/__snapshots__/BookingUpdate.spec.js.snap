@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BookingUpdate /> component @renders should not render if no booking is passed as prop 1`] = `null`;
+
+exports[`<BookingUpdate /> component @renders should render booking with note 1`] = `
+<div
+  className="booking_update"
+>
+  <h2
+    className="title"
+  >
+    Booking update
+  </h2>
+  <form>
+    <Button
+      className="close"
+      clickHandler={[Function]}
+    />
+    <div>
+      <span
+        className="label_for"
+      >
+        Name
+      </span>
+      <span>
+        Mr Fred Bloggs
+      </span>
+    </div>
+    <div>
+      <span
+        className="label_for"
+      >
+        Time
+      </span>
+      <span>
+        16.00
+      </span>
+    </div>
+    <div>
+      <span
+        className="label_for"
+      >
+        Covers
+      </span>
+      <span>
+        2
+      </span>
+    </div>
+    <div>
+      <span
+        className="label_for"
+      >
+        Seated
+      </span>
+      <RadioButton
+        checked={true}
+        className=""
+        clickHandler={[Function]}
+        label="No"
+        name="selection"
+        value="not_seated"
+      />
+      <RadioButton
+        checked={false}
+        className=""
+        clickHandler={[Function]}
+        label="Yes"
+        name="selection"
+        value="seated"
+      />
+      <RadioButton
+        checked={false}
+        className=""
+        clickHandler={[Function]}
+        label="Cancelled"
+        name="selection"
+        value="cancelled"
+      />
+    </div>
+    <div>
+      <span
+        className="label_for"
+      >
+        Notes
+      </span>
+      <p>
+        By appointment of the royal family
+      </p>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<BookingUpdate /> component @renders should render with booking passed as prop 1`] = `
+<div
+  className="booking_update"
+>
+  <h2
+    className="title"
+  >
+    Booking update
+  </h2>
+  <form>
+    <Button
+      className="close"
+      clickHandler={[Function]}
+    />
+    <div>
+      <span
+        className="label_for"
+      >
+        Name
+      </span>
+      <span>
+        Mr Fred Bloggs
+      </span>
+    </div>
+    <div>
+      <span
+        className="label_for"
+      >
+        Time
+      </span>
+      <span>
+        16.00
+      </span>
+    </div>
+    <div>
+      <span
+        className="label_for"
+      >
+        Covers
+      </span>
+      <span>
+        2
+      </span>
+    </div>
+    <div>
+      <span
+        className="label_for"
+      >
+        Seated
+      </span>
+      <RadioButton
+        checked={true}
+        className=""
+        clickHandler={[Function]}
+        label="No"
+        name="selection"
+        value="not_seated"
+      />
+      <RadioButton
+        checked={false}
+        className=""
+        clickHandler={[Function]}
+        label="Yes"
+        name="selection"
+        value="seated"
+      />
+      <RadioButton
+        checked={false}
+        className=""
+        clickHandler={[Function]}
+        label="Cancelled"
+        name="selection"
+        value="cancelled"
+      />
+    </div>
+  </form>
+</div>
+`;

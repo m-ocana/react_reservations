@@ -63,13 +63,9 @@ describe('<BookingContainer /> ', () => {
   describe('@events', () => {
     describe('on handleClick callback', () => {
       it('should set state with active booking', () => {
-        const activeBooking = {
-          entryIndex: 0,
-          bookingIndex: 0
-        }
         const { wrapper, instance } = renderBookingContainer()
         wrapper.setState(mockedState)
-        instance.handleClick(null, activeBooking)
+        instance.handleTableClick(null, 0, 0)
         expect(wrapper.state()).toMatchSnapshot()
       })
     })

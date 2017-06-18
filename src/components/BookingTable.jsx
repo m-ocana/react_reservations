@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { formatName } from '../helpers/utils'
 import style from './BookingTable.css'
 
 export default class BookingTable extends Component {
@@ -7,10 +8,6 @@ export default class BookingTable extends Component {
     bookings: PropTypes.array,
     clickHandler: PropTypes.func,
     entryIndex: PropTypes.number
-  }
-
-  formatName = ({ title, firstName, lastName }) => {
-    return `${title} ${firstName} ${lastName}`
   }
 
   renderEntries = () => {
@@ -24,7 +21,7 @@ export default class BookingTable extends Component {
             className={cancelled ? style.cancelled : ''}
             key={bookingIndex}
           >
-            <td>{this.formatName(booking)}</td>
+            <td>{formatName(booking)}</td>
             <td>{time}</td>
             <td>{partySize}</td>
             <td>{seated ? 'Y' : 'N'}</td>
