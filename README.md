@@ -21,6 +21,13 @@ npm start
 open http://localhost:3000
 ```
 
+### Testing
+
+Run test scripts and generate coverage report
+
+```
+npm run test
+```
 
 ### Building
 
