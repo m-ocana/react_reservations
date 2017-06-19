@@ -61,11 +61,64 @@ describe('<BookingContainer /> ', () => {
   })
 
   describe('@events', () => {
-    describe('on handleClick callback', () => {
+    describe('on handleTableClick callback', () => {
       it('should set state with active booking', () => {
         const { wrapper, instance } = renderBookingContainer()
         wrapper.setState(mockedState)
         instance.handleTableClick(null, 0, 0)
+        expect(wrapper.state()).toMatchSnapshot()
+      })
+    })
+
+    describe('on handleModalClose callback', () => {
+      it('should set activeBooking to null', () => {
+        const { wrapper, instance } = renderBookingContainer()
+        wrapper.setState({
+          ...mockedState,
+          activeBooking: {
+            entryIndex: 0,
+            bookingIndex: 0
+          }
+        })
+        instance.handleModalClose()
+        expect(wrapper.state().activeBooking).toBe(null)
+      })
+    })
+
+    describe('on handleBookingChange callback', () => {
+      it('should modify booking to seated and update state', () => {
+        const { wrapper, instance } = renderBookingContainer()
+        wrapper.setState({
+          ...mockedState,
+          activeBooking: {
+            entryIndex: 0,
+            bookingIndex: 0
+          }
+        })
+        instance.handleBookingChange({
+          target: {
+            value: 'seated',
+            checked: true
+          }
+        })
+        expect(wrapper.state()).toMatchSnapshot()
+      })
+
+      it('should modify booking to cancelled and update state', () => {
+        const { wrapper, instance } = renderBookingContainer()
+        wrapper.setState({
+          ...mockedState,
+          activeBooking: {
+            entryIndex: 0,
+            bookingIndex: 0
+          }
+        })
+        instance.handleBookingChange({
+          target: {
+            value: 'cancelled',
+            checked: true
+          }
+        })
         expect(wrapper.state()).toMatchSnapshot()
       })
     })

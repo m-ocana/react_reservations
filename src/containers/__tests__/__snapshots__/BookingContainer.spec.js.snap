@@ -1,6 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<BookingContainer />  @events on handleClick callback should set state with active booking 1`] = `
+exports[`<BookingContainer />  @events on handleBookingChange callback should modify booking to cancelled and update state 1`] = `
+Object {
+  "activeBooking": Object {
+    "bookingIndex": 0,
+    "entryIndex": 0,
+  },
+  "bookingEntries": Array [
+    Object {
+      "bookings": Array [
+        Object {
+          "cancelled": true,
+          "firstName": "Fred",
+          "lastName": "Bloggs",
+          "notes": "",
+          "partySize": 2,
+          "seated": false,
+          "time": "16.00",
+          "title": "Mr",
+        },
+        Object {
+          "cancelled": true,
+          "firstName": "John",
+          "lastName": "Smith",
+          "notes": "",
+          "partySize": 1,
+          "seated": false,
+          "time": "18.45",
+          "title": "Mr",
+        },
+      ],
+      "date": "2017-03-13",
+    },
+  ],
+}
+`;
+
+exports[`<BookingContainer />  @events on handleBookingChange callback should modify booking to seated and update state 1`] = `
+Object {
+  "activeBooking": Object {
+    "bookingIndex": 0,
+    "entryIndex": 0,
+  },
+  "bookingEntries": Array [
+    Object {
+      "bookings": Array [
+        Object {
+          "cancelled": false,
+          "firstName": "Fred",
+          "lastName": "Bloggs",
+          "notes": "",
+          "partySize": 2,
+          "seated": true,
+          "time": "16.00",
+          "title": "Mr",
+        },
+        Object {
+          "cancelled": true,
+          "firstName": "John",
+          "lastName": "Smith",
+          "notes": "",
+          "partySize": 1,
+          "seated": false,
+          "time": "18.45",
+          "title": "Mr",
+        },
+      ],
+      "date": "2017-03-13",
+    },
+  ],
+}
+`;
+
+exports[`<BookingContainer />  @events on handleTableClick callback should set state with active booking 1`] = `
 Object {
   "activeBooking": Object {
     "bookingIndex": 0,
